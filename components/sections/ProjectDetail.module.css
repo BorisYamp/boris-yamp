@@ -1,0 +1,171 @@
+.article {
+  padding-block: clamp(2rem, 6vh, 4rem) clamp(4rem, 10vh, 6rem);
+}
+
+.container {
+  max-width: 980px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--t-fast);
+}
+
+.back:hover { color: var(--color-accent); }
+
+[dir='rtl'] .back::before { content: '→ '; }
+[dir='rtl'] .back { /* arrow already in text, but we hide the original */ }
+
+.header {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.statusLive { background: rgba(16, 185, 129, 0.12); color: var(--color-success); }
+.statusSoon { background: rgba(245, 158, 11, 0.12); color: var(--color-warning); }
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .body { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.prose p { color: var(--color-text-muted); }
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.itemsList li {
+  padding-inline-start: 1.25rem;
+  position: relative;
+  color: var(--color-text);
+}
+
+.itemsList li::before {
+  content: '→';
+  position: absolute;
+  inset-inline-start: 0;
+  color: var(--color-accent);
+}
+
+.itemsList a {
+  color: var(--color-text);
+  border-bottom: 1px dashed var(--color-border-strong);
+  transition: all var(--t-fast);
+}
+
+.itemsList a:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.note {
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border-inline-start: 3px solid var(--color-warning);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.meta {
+  position: sticky;
+  top: 100px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metaItem dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  margin-bottom: 0.4rem;
+}
+
+.metaItem dd {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.techList li {
+  padding: 3px 8px;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.metaLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metaLinks a {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}

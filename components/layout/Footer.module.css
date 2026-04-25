@@ -1,0 +1,32 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: 2.5rem;
+  margin-top: 4rem;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.links a {
+  color: var(--color-text-muted);
+  transition: color var(--t-fast);
+}
+
+.links a:hover { color: var(--color-text); }

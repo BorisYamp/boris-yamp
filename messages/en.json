@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "downloadCv": "Download CV"
+  },
+  "hero": {
+    "available": "Available for hire",
+    "name": "Boris Yampolsky",
+    "title": "Full-stack engineer with a quantum-computing background.",
+    "subtitle": "I build production systems end-to-end — Python/Django backends, React/TypeScript frontends, Rust systems and Kotlin/Android. Currently full-stack at SindyClean and building Hush, a cross-platform notification manager.",
+    "downloadCv": "Download CV",
+    "viewProjects": "View projects"
+  },
+  "projects": {
+    "title": "Selected projects",
+    "subtitle": "Personal and freelance work I have shipped or am actively building.",
+    "viewProject": "View project",
+    "comingSoon": "Coming soon",
+    "live": "Live",
+    "openSource": "Source",
+    "openDemo": "Demo",
+    "stars": "{count} ★ on GitHub",
+    "hush": {
+      "name": "Hush",
+      "tagline": "Cross-platform notification manager.",
+      "summary": "A rule-based notification filter with a Rust core and Kotlin/Android UI. Intercepts and classifies notifications from Telegram, WhatsApp, Signal and Gmail using contact matching, time schedules and on-device rules. iOS planned via UniFFI.",
+      "long": [
+        "Modern smartphones surface every notification with the same urgency. The OS-level Do Not Disturb is binary — silent or not — and ignores who is messaging or why. Hush replaces that with a programmable rule engine that runs entirely on-device.",
+        "The architecture is split deliberately: a Rust core owns the rule engine, contact graph, schedules and SQLite storage; Kotlin/Compose owns Android UI, OS integration and the foreground service that intercepts notifications via NotificationListenerService. Rust↔Kotlin interop runs through UniFFI, which gives me memory-safe FFI without writing JNI by hand and keeps the same core ready for an iOS shell later.",
+        "Channel coverage goes beyond what a notification listener can see. Telegram pulls live updates through TdLib so group/channel/contact metadata is available before a message becomes a notification. Gmail polls via OAuth on a background schedule, so important threads can break through silence even when the phone is asleep. WhatsApp and Signal are read off the listener stream and matched against the contact graph.",
+        "Source release is pending while the Android UI and rule editor settle. I will publish the Rust core and Kotlin client together once both are stable enough to be useful to other people."
+      ],
+      "comingSoonNote": "Source coming soon — currently in active development."
+    },
+    "quantumVis": {
+      "name": "QuantumVis",
+      "tagline": "Interactive single/two-qubit state visualizer.",
+      "summary": "A browser-based sandbox for poking at quantum gates. Bloch sphere for one qubit, joint state visualization for two. Implements X, Y, Z, H, S, CNOT and SWAP with complex arithmetic and state normalization.",
+      "long": [
+        "Most quantum tutorials hand you Qiskit and ask you to read amplitudes off a printed array. QuantumVis exists because I wanted the inverse — drag a gate onto a qubit and watch the Bloch vector move.",
+        "Single-qubit mode renders a live Bloch sphere; the gate palette mutates the state vector and the sphere updates immediately. Two-qubit mode shows joint amplitudes and exposes entangling gates (CNOT, SWAP) so you can watch separable states collapse into entangled ones.",
+        "Built as a side project alongside D-Wave's quantum-programming certification track and my work at Qu-Beam on D-Wave annealing. The implementation is intentionally from scratch — no quantum library, just complex numbers, matrices and state normalization — because writing it that way is what taught me the math."
+      ]
+    },
+    "panicMode": {
+      "name": "panic_mode",
+      "tagline": "Linux server monitoring & incident-prevention agent.",
+      "summary": "A lightweight Rust daemon that watches Linux servers for the failure modes that wake you up at 3am — disk pressure, runaway processes, OOM, network outages — and pages a developer in real time before things actually go down.",
+      "long": [
+        "Built for the gap between 'I have one server' and 'I run Datadog/Prometheus'. For a small fleet, full observability stacks are overkill and underused — but you still need to know when a disk is at 95% or a process is leaking memory before it cascades into a real outage.",
+        "panic_mode runs as a single Rust binary with minimal dependencies. It maintains continuous logs of system events, watches a configurable set of metrics and conditions, and pushes notifications to a developer via the configured channel when thresholds are crossed.",
+        "The design goal is 'noisy enough to be useful, quiet enough to trust' — a monitor that pages too often gets muted, and a muted monitor is no monitor at all."
+      ]
+    },
+    "freelance": {
+      "name": "Freelance Web Development",
+      "tagline": "Bilingual production sites for small businesses.",
+      "summary": "Production Next.js sites built for small businesses in Israel. Bilingual (Hebrew + English/Russian), RTL-aware, deployed on Vercel with static export for SEO and Core Web Vitals.",
+      "long": [
+        "Two production deployments for small businesses, both built with the same toolchain: Next.js + next-intl + Vercel, static export, and design tuned for the actual customer reading the site rather than for an awards reel.",
+        "Sofiadent — landing site for a dental clinic in Israel. Russian-language, single-page with conversion-focused sections (services, doctors, before/after, contact). Embedded interactive map and clear call-to-action paths.",
+        "AI-BA Hub — bilingual Hebrew + English business-automation studio site. Includes RTL layout for Hebrew, multi-page structure (services, bots, pricing, FAQ, contact form), and an EmailJS-powered contact pipeline."
+      ],
+      "items": {
+        "sofiadent": "Sofiadent — dental clinic landing",
+        "aibahub": "AI-BA Hub — business-automation studio"
+      }
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "sindy": {
+      "company": "SindyClean",
+      "role": "Full-Stack Developer with DevOps Responsibilities",
+      "period": "May 2025 – Present",
+      "highlights": [
+        "Built and maintain a CRM serving 300+ clients and 20+ providers — React (TS) frontend, Django REST backend.",
+        "Improved app performance ~20% via PostgreSQL query optimization, indexing and migration redesign.",
+        "Built webhook integrations with AI systems, Make.com automations and Facebook Graph API workflows.",
+        "Run production and preview environments with 24/7 on-call: Docker Compose, CI/CD, incident response."
+      ]
+    },
+    "quBeam": {
+      "company": "Qu-Beam",
+      "role": "Python Developer (Solo)",
+      "period": "August 2023 – January 2025",
+      "highlights": [
+        "Sole developer on a quantum-annealing optimization system using D-Wave hardware and PyQubo.",
+        "Architected the full Python backend with unittest coverage and algorithm-level performance tuning.",
+        "Built data-visualization tooling (NumPy, Pandas, Matplotlib); ran Kubernetes for backend auto-scaling.",
+        "Represented the startup at the FW Investment Opportunity F2 VC & Next conference."
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Open to full-stack roles in Israel and remote work. Freelance enquiries welcome.",
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "telegram": "Telegram"
+    },
+    "copied": "Copied!"
+  },
+  "footer": {
+    "rights": "© {year} Boris Yampolsky",
+    "builtWith": "Built with Next.js."
+  },
+  "project": {
+    "back": "← All projects",
+    "tech": "Stack",
+    "year": "Year",
+    "status": "Status",
+    "links": "Links"
+  },
+  "meta": {
+    "homeTitle": "Boris Yampolsky — Full-stack & quantum engineer",
+    "homeDesc": "Personal portfolio of Boris Yampolsky — full-stack engineer with a quantum-computing background. Projects, experience and contact.",
+    "hushTitle": "Hush — cross-platform notification manager · Boris Yampolsky",
+    "hushDesc": "Rust core + Kotlin Android notification filter with rule engine, contact matching and Telegram/Gmail integration.",
+    "quantumVisTitle": "QuantumVis — interactive qubit visualizer · Boris Yampolsky",
+    "quantumVisDesc": "Browser-based sandbox for single and two-qubit gates with Bloch sphere visualization.",
+    "panicModeTitle": "panic_mode — Linux monitoring agent · Boris Yampolsky",
+    "panicModeDesc": "Lightweight Rust daemon for Linux server monitoring and incident prevention.",
+    "freelanceTitle": "Freelance Web Development · Boris Yampolsky",
+    "freelanceDesc": "Production Next.js sites for small businesses in Israel — bilingual, RTL-aware, deployed on Vercel."
+  }
+}
