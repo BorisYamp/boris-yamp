@@ -13,7 +13,11 @@ export default function PersonSchema({ locale }: { locale: string }) {
       'Full-stack engineer with a quantum-computing background. Python/Django, React/TypeScript, Rust and Kotlin/Android.',
     email: `mailto:${siteConfig.email}`,
     telephone: siteConfig.phoneRaw,
-    address: { '@type': 'PostalAddress', addressLocality: 'Holon', addressCountry: 'IL' },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'Tel Aviv & Jerusalem',
+      addressCountry: 'IL',
+    },
     sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.telegram],
     knowsLanguage: ['en', 'he', 'ru', 'uk'],
     knowsAbout: [
