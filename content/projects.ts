@@ -29,7 +29,7 @@ export const projects: Project[] = [
     status: 'live',
     year: '2025',
     tech: ['Rust', 'Linux', 'Systemd'],
-    github: 'https://github.com/BorisYamp/panic_mode',
+    github: 'https://github.com/BorisYamp/panicmode',
   },
   {
     slug: 'freelance',
