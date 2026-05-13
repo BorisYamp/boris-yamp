@@ -11,6 +11,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'panic-mode',
+    status: 'live',
+    year: '2026',
+    tech: ['Rust', 'Linux', 'Tokio', 'SQLite', 'iptables', 'Telegram'],
+    github: 'https://github.com/BorisYamp/panicmode',
+  },
+  {
     slug: 'hush',
     status: 'coming-soon',
     year: '2026',
@@ -23,13 +30,6 @@ export const projects: Project[] = [
     tech: ['React', 'TypeScript', 'Vite'],
     github: 'https://github.com/BorisYamp/quantum-vis',
     demo: 'https://quantum-vis.vercel.app/',
-  },
-  {
-    slug: 'panic-mode',
-    status: 'live',
-    year: '2026',
-    tech: ['Rust', 'Linux', 'Tokio', 'SQLite', 'iptables', 'Telegram'],
-    github: 'https://github.com/BorisYamp/panicmode',
   },
   {
     slug: 'freelance',
