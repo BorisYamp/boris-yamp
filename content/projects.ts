@@ -27,8 +27,8 @@ export const projects: Project[] = [
   {
     slug: 'panic-mode',
     status: 'live',
-    year: '2025',
-    tech: ['Rust', 'Linux', 'Systemd'],
+    year: '2026',
+    tech: ['Rust', 'Linux', 'Tokio', 'SQLite', 'iptables', 'Telegram'],
     github: 'https://github.com/BorisYamp/panicmode',
   },
   {

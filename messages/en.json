@@ -46,13 +46,14 @@
       ]
     },
     "panicMode": {
-      "name": "panic_mode",
-      "tagline": "Linux server monitoring & incident-prevention agent.",
-      "summary": "A lightweight Rust daemon that watches Linux servers for the failure modes that wake you up at 3am — disk pressure, runaway processes, OOM, network outages — and pages a developer in real time before things actually go down.",
+      "name": "PanicMode",
+      "tagline": "Linux server self-defense agent that freezes broken processes instead of killing them.",
+      "summary": "A single-binary Rust daemon for small Linux fleets. Watches CPU, memory, disk, network, SSH auth and filesystem changes — and when a process misbehaves, freezes it with SIGSTOP instead of restarting the box, so logs and in-memory state survive for post-mortem.",
       "long": [
-        "Built for the gap between 'I have one server' and 'I run Datadog/Prometheus'. For a small fleet, full observability stacks are overkill and underused — but you still need to know when a disk is at 95% or a process is leaking memory before it cascades into a real outage.",
-        "panic_mode runs as a single Rust binary with minimal dependencies. It maintains continuous logs of system events, watches a configurable set of metrics and conditions, and pushes notifications to a developer via the configured channel when thresholds are crossed.",
-        "The design goal is 'noisy enough to be useful, quiet enough to trust' — a monitor that pages too often gets muted, and a muted monitor is no monitor at all."
+        "Built from a failure pattern I kept watching at small dev shops: one VPS, a junior pushes a regression, the box gets DDoS'd or memory-leaks itself out, someone SSHes in at 6am and restarts everything — and the restart wipes every clue about what actually broke.",
+        "PanicMode is the opposite move. When a process misbehaves it gets a SIGSTOP, not a kill. The rest of the box keeps serving traffic, and the broken process stays frozen in memory with all its file descriptors, log buffers and state intact. An engineer logs in to a server that is still up, with the failure preserved like a crime scene — instead of to a restarted box that already lost its evidence.",
+        "Around that core sit two more layers. SSH brute-force and DDoS sources are banned at the iptables level with a persistent SQLite blacklist, so the same attacker cannot wait out a fail2ban window and try again. A Telegram bot the daemon owns directly — no SaaS, no third-party uptime monitor, no recurring cost — pages the developer the moment a threshold trips.",
+        "Single ~9 MB Rust binary, one YAML config, no daemon-of-daemons stack. MIT/Apache-2.0, Linux-only for now (journald + iptables), production-deployed and in test/harden before public launch."
       ]
     },
     "freelance": {
@@ -126,8 +127,8 @@
     "hushDesc": "Rust core + Kotlin Android notification filter with rule engine, contact matching and Telegram/Gmail integration.",
     "quantumVisTitle": "QuantumVis — interactive qubit visualizer · Boris Yampolsky",
     "quantumVisDesc": "Browser-based sandbox for single and two-qubit gates with Bloch sphere visualization.",
-    "panicModeTitle": "panic_mode — Linux monitoring agent · Boris Yampolsky",
-    "panicModeDesc": "Lightweight Rust daemon for Linux server monitoring and incident prevention.",
+    "panicModeTitle": "PanicMode — Linux server self-defense in Rust · Boris Yampolsky",
+    "panicModeDesc": "Single-binary Rust daemon that freezes broken Linux processes with SIGSTOP instead of killing them, preserving logs and state for post-mortem.",
     "freelanceTitle": "Freelance Web Development · Boris Yampolsky",
     "freelanceDesc": "Production Next.js sites for small businesses in Israel — bilingual, RTL-aware, deployed on Vercel."
   }
